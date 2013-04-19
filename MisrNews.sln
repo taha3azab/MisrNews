@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.DataLayer", "MisrNews.DataLayer\MisrNews.DataLayer.csproj", "{BF02CAF6-0593-4D0B-BBCC-0164AC430E46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{58CD8DDE-2919-4945-A4FD-A24BEFAE32D3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.Repository", "MisrNews.Repository\MisrNews.Repository.csproj", "{E6E62068-2105-41BC-9713-7470303C098A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.DomainClasses", "MisrNews.DomainClasses\MisrNews.DomainClasses.csproj", "{C95F8005-EB38-4333-8FE3-CE5EB109FF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.WebApi", "MisrNews.WebApi\MisrNews.WebApi.csproj", "{77F71DDA-546B-473D-AEDB-ED4D6B8DD3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.NewsProvider", "MisrNews.NewsProvider\MisrNews.NewsProvider.csproj", "{5FCB9769-D67F-4BC5-AC8F-33D4B865231E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.ConsoleApp", "MisrNews.ConsoleApp\MisrNews.ConsoleApp.csproj", "{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF02CAF6-0593-4D0B-BBCC-0164AC430E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF02CAF6-0593-4D0B-BBCC-0164AC430E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF02CAF6-0593-4D0B-BBCC-0164AC430E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF02CAF6-0593-4D0B-BBCC-0164AC430E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E62068-2105-41BC-9713-7470303C098A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E62068-2105-41BC-9713-7470303C098A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E62068-2105-41BC-9713-7470303C098A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E62068-2105-41BC-9713-7470303C098A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C95F8005-EB38-4333-8FE3-CE5EB109FF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95F8005-EB38-4333-8FE3-CE5EB109FF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95F8005-EB38-4333-8FE3-CE5EB109FF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95F8005-EB38-4333-8FE3-CE5EB109FF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F71DDA-546B-473D-AEDB-ED4D6B8DD3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F71DDA-546B-473D-AEDB-ED4D6B8DD3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F71DDA-546B-473D-AEDB-ED4D6B8DD3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F71DDA-546B-473D-AEDB-ED4D6B8DD3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FCB9769-D67F-4BC5-AC8F-33D4B865231E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FCB9769-D67F-4BC5-AC8F-33D4B865231E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCB9769-D67F-4BC5-AC8F-33D4B865231E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FCB9769-D67F-4BC5-AC8F-33D4B865231E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
