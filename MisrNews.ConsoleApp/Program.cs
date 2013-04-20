@@ -46,12 +46,12 @@ namespace MisrNews.ConsoleApp
                 var title = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.FirstChild.ToString();
                 var date = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.Cq()["span"].FirstElement().FirstChild.ToString().Trim();
                 DateTime.TryParse(date,new MyDateTimeFormatProvider(), DateTimeStyles.AllowInnerWhite, out publishedDate);
-                //repository.Save(new Story
-                //    {
-                //        ImageUrl = imageUrl,
-                //        Url = storyUrl,
-                //        Title = title
-                //    });
+                repository.Save(new Story
+                    {
+                        ImageUrl = imageUrl,
+                        Url = storyUrl,
+                        Title = title
+                    });
             }
 
         }

@@ -20,6 +20,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.NewsProvider", "Mi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.ConsoleApp", "MisrNews.ConsoleApp\MisrNews.ConsoleApp.csproj", "{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD233B0E-5DE9-4994-9EE1-8D990DBEE175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.UnitTests", "MisrNews.UnitTests\MisrNews.UnitTests.csproj", "{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisrNews.IntegrationTests", "MisrNews.IntegrationTests\MisrNews.IntegrationTests.csproj", "{CA88D104-E618-449D-81A4-A1B9F3C41F47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,8 +56,20 @@ Global
 		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38484EB9-CF7D-4619-81AB-9EDD72A3B7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA88D104-E618-449D-81A4-A1B9F3C41F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA88D104-E618-449D-81A4-A1B9F3C41F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA88D104-E618-449D-81A4-A1B9F3C41F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA88D104-E618-449D-81A4-A1B9F3C41F47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC8B78FC-BF63-43FB-B52D-6B65BFB8759D} = {CD233B0E-5DE9-4994-9EE1-8D990DBEE175}
+		{CA88D104-E618-449D-81A4-A1B9F3C41F47} = {CD233B0E-5DE9-4994-9EE1-8D990DBEE175}
 	EndGlobalSection
 EndGlobal
