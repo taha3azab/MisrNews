@@ -82,7 +82,7 @@ namespace MisrNews.Repository
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return DataContext.Set<TEntity>().Where(predicate).ToList();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate, out int total)

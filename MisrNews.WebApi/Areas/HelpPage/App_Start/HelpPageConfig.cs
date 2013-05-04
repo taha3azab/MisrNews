@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Web;
 using System.Web.Http;
 
 namespace MisrNews.WebApi.Areas.HelpPage
@@ -41,7 +37,7 @@ namespace MisrNews.WebApi.Areas.HelpPage
 
             //// Uncomment the following to correct the sample request when the action expects an HttpRequestMessage with ObjectContent<string>.
             //// The sample will be generated as if the controller named "Values" and action named "Get" were having string as the body parameter.
-            config.SetActualRequestType(typeof(string), "Story", "GetStory");
+            config.SetActualRequestType(typeof(string), "Story", "Get");
 
             //// Uncomment the following to correct the sample response when the action returns an HttpResponseMessage with ObjectContent<string>.
             //// The sample will be generated as if the controller named "Values" and action named "Post" were returning a string.

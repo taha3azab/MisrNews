@@ -8,5 +8,6 @@ namespace MisrNews.DomainClasses
         public virtual string Name { get; set; }
         public virtual string Url { get; set; }
         public virtual ICollection<Section> Sections { get; set; }
+        public virtual ICollection<Story> Stories { get; set; }
     }
 }

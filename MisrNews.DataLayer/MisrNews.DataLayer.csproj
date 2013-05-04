@@ -47,10 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201304131720352_InitialCreate.cs" />
-    <Compile Include="Migrations\201304131720352_InitialCreate.Designer.cs">
-      <DependentUpon>201304131720352_InitialCreate.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Mapping\NewspaperMap.cs" />
+    <Compile Include="Mapping\SectionMap.cs" />
+    <Compile Include="Mapping\StoryMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,19 +58,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MisrNews.DomainClasses\MisrNews.DomainClasses.csproj">
       <Project>{c95f8005-eb38-4333-8fe3-ce5eb109ff21}</Project>
       <Name>MisrNews.DomainClasses</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201304131720352_InitialCreate.resx">
-      <DependentUpon>201304131720352_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

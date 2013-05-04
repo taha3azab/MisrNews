@@ -1,8 +1,7 @@
-using System.Web.Http;
 using MisrNews.DataLayer;
 using MisrNews.DomainClasses;
 using MisrNews.Repository;
-using Ninject.Web.Mvc;
+using System.Web.Http;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(MisrNews.WebApi.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(MisrNews.WebApi.App_Start.NinjectWebCommon), "Stop")]
@@ -62,6 +61,7 @@ namespace MisrNews.WebApi.App_Start
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
 
             kernel.Bind<IRepository<Story>>().To<Repository<NewsContext, Story>>();
+            kernel.Bind<IRepository<Newspaper>>().To<Repository<NewsContext, Newspaper>>();
         }        
     }
 }

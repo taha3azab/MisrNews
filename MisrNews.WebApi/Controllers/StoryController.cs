@@ -2,7 +2,6 @@
 using MisrNews.DomainClasses;
 using MisrNews.Repository;
 using MisrNews.WebApi.Models;
-//using System.Data.Entity.Infrastructure;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -18,107 +17,35 @@ namespace MisrNews.WebApi.Controllers
             _repository = repository;
         }
 
-
-        // GET api/Story
-        public HttpResponseMessage GetStories()
+        public HttpResponseMessage Get()
         {
-            return Request.CreateResponse(HttpStatusCode.OK,
-                                          Mapper.Map<List<Story>, List<StoryDto>>(_repository.GetList()));
+            var stories = _repository.GetList();
+            var list = Mapper.Map<List<Story>, List<StoryDto>>(stories);
+            return Request.CreateResponse(HttpStatusCode.OK, list);
         }
 
-        // GET api/Story/5
-        //public HttpResponseMessage GetStory(int id)
-        //{
-        //    var story = _repository.Get(s => s.Id == id);
+        public HttpResponseMessage Get(string section)
+        {
+            var stories = _repository.GetList(s =>
+                                              s.Section.Name.ToLower() == section.ToLower());
+            var list = Mapper.Map<List<Story>, List<StoryDto>>(stories);
+            return Request.CreateResponse(HttpStatusCode.OK, list);
+        }
 
-        //    //Story story = db.Stories.Find(id);
-        //    if (story == null)
-        //    {
-        //        throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-        //    }
+        public HttpResponseMessage Get(string newspaper,string section )
+        {
+            var stories =
+                _repository.GetList(
+                    s =>
+                    s.Newspaper.Name.ToLower() == newspaper.ToLower()
+                    && s.Section.Name.ToLower() == section.ToLower());
 
-        //    return Request.CreateResponse(HttpStatusCode.OK, story);
-        //}
-
-        // PUT api/Story/5
-        //public HttpResponseMessage PutStory(int id, Story story)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-        //    }
-
-        //    if (id != story.Id)
-        //    {
-        //        return Request.CreateResponse(HttpStatusCode.BadRequest);
-        //    }
-
-        //    //db.Entry(story).State = EntityState.Modified;
-
-            
-        //        var single = _repository.Single(s => s.Id == id);
-        //        _repository.Update(single);
-        //        //db.SaveChanges();
-            
-        //    //catch (DbUpdateConcurrencyException ex)
-        //    //if (operationStatus.Status)
-        //    //{
-                
-        //    //}
-        //    //    return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-           
-
-        //    return Request.CreateResponse(HttpStatusCode.OK);
-        //}
-
-        // POST api/Story
-        //public HttpResponseMessage PostStory(Story story)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //db.Stories.Add(story);
-        //        //db.SaveChanges();
-
-        //        _repository.Save(story);
-
-        //        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, story);
-        //        if (Url != null) response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = story.Id }));
-        //        return response;
-        //    }
-        //    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-        //}
-
-        // DELETE api/Story/5
-        //public HttpResponseMessage DeleteStory(int id)
-        //{
-        //    //Story story = db.Stories.Find(id);
-        //    //var story = _repository.Find(s => s.Id == id);
-        //    var story = _repository.Single(s => s.Id == id);
-        //    //if (story == null)
-        //    //{
-        //    //    return Request.CreateResponse(HttpStatusCode.NotFound);
-        //    //}
-
-        //    //db.Stories.Remove(story);
-
-        //    //try
-        //    //{
-        //        //db.SaveChanges();
-        //        _repository.Delete(story);
-        //    //}
-        //    //catch (DbUpdateConcurrencyException ex)
-        //    //{
-        //    //    return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-        //    //}
-
-        //    return Request.CreateResponse(HttpStatusCode.OK, story);
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-            
-        //    //db.Dispose();
-        //    base.Dispose(disposing);
-        //}
+            if (stories == null || stories.Count == 0)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NoContent, "404 - Not Found");
+            }
+            var list = Mapper.Map<List<Story>, List<StoryDto>>(stories);
+            return Request.CreateResponse(HttpStatusCode.OK, list);
+        }
     }
 }
