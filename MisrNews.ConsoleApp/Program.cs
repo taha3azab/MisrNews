@@ -19,35 +19,113 @@ namespace MisrNews.ConsoleApp
             var newspaperRepo = new Repository<NewsContext, Newspaper>();
             var sectionRepo = new Repository<NewsContext, Section>();
 
-            var sections = sectionRepo.GetList(s => s.Newspaper.Name.ToLower() == "youm7");
+
+            var sections = sectionRepo.GetList(s => s.Newspaper.Name.ToLower() == "Al Masry Al Youm".ToLower());
 
             foreach (var section in sections)
             {
-                var url = section.Url;
+                var url = "http://www.almasryalyoum.com/channel/14";// section.Url;
+                var host = new Uri(url).Host;
+
                 var dom = CQ.CreateFromUrl(url);
 
-                var cq = dom[".newsBriefBlock"];
-                foreach (var newsBriefBlock in cq)
-                {
-                    string imageUrl;
-                    string storyUrl;
-                    DateTime publishedDate;
+                var cq = dom[".view-subchannel-no-section"].FirstElement().ChildElements;
+                //foreach (var item in cq)
+                //{
+                //    string imageUrl;
+                //    string storyUrl;
+                //    DateTime publishedDate;
 
-                    newsBriefBlock.FirstElementChild.FirstElementChild.TryGetAttribute("href", out storyUrl);
-                    newsBriefBlock.FirstElementChild.FirstElementChild.FirstElementChild.TryGetAttribute("src", out imageUrl);
-                    var title = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.FirstChild.ToString();
-                    var date = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.Cq()["span"].FirstElement().FirstChild.ToString().Trim();
-                    DateTime.TryParse(date, new MyDateTimeFormatProvider(), DateTimeStyles.AllowInnerWhite, out publishedDate);
-                    storyRepo.Save(new Story
-                    {
-                        ImageUrl = imageUrl,
-                        Url = storyUrl,
-                        Title = title,
-                        SectionId = section.Id,
-                        NewspaperId = section.NewspaperId
-                    });
-                }
+                //    item.FirstElementChild.TryGetAttribute("href", out storyUrl);
+                //    storyUrl = host + storyUrl;
+                //    imageUrl = item.FirstElementChild.Cq().Children("img").Attr("src");
+                //    var title = item.FirstElementChild.Cq().Children(".title_3").Text().TrimStart().TrimEnd();
+                //    var date = item.FirstElementChild.Cq().Children(".atr_2").Text();
+                //    if (!string.IsNullOrEmpty(title))
+                //    {
+                //        storyRepo.Save(new Story
+                //        {
+                //            ImageUrl = imageUrl,
+                //            Url = storyUrl,
+                //            Title = title,
+                //            SectionId = section.Id,
+                //            NewspaperId = section.NewspaperId
+                //        });
+                //    }
+                //}
             }
+
+
+            //var sections = sectionRepo.GetList(s => s.Newspaper.Name.ToLower() == "el watan");
+
+            //foreach (var section in sections)
+            //{
+            //    var url =  section.Url;
+            //    var host = new Uri(url).Host;
+
+            //    var dom = CQ.CreateFromUrl(url);
+
+            //    var cq = dom[".h_list"].Children().Elements;
+            //    foreach (var item in cq)
+            //    {
+            //        string imageUrl;
+            //        string storyUrl;
+            //        DateTime publishedDate;
+
+            //        item.FirstElementChild.TryGetAttribute("href", out storyUrl);
+            //        storyUrl = host + storyUrl;
+            //        imageUrl = item.FirstElementChild.Cq().Children("img").Attr("src");
+            //        var title = item.FirstElementChild.Cq().Children(".title_3").Text().TrimStart().TrimEnd();
+            //        var date = item.FirstElementChild.Cq().Children(".atr_2").Text();
+            //        if (!string.IsNullOrEmpty(title))
+            //        {
+            //            storyRepo.Save(new Story
+            //                {
+            //                    ImageUrl = imageUrl,
+            //                    Url = storyUrl,
+            //                    Title = title,
+            //                    SectionId = section.Id,
+            //                    NewspaperId = section.NewspaperId
+            //                });
+            //        }
+            //    }
+            //}
+
+
+
+
+            //var sections = sectionRepo.GetList(s => s.Newspaper.Name.ToLower() == "youm7");
+
+            //foreach (var section in sections)
+            //{
+            //    var url = section.Url;
+            //    var dom = CQ.CreateFromUrl(url);
+
+            //    var cq = dom[".newsBriefBlock"];
+            //    foreach (var newsBriefBlock in cq)
+            //    {
+            //        string imageUrl;
+            //        string storyUrl;
+            //        DateTime publishedDate;
+
+            //        newsBriefBlock.FirstElementChild.FirstElementChild.TryGetAttribute("href", out storyUrl);
+            //        newsBriefBlock.FirstElementChild.FirstElementChild.FirstElementChild.TryGetAttribute("src", out imageUrl);
+            //        var title = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.FirstChild.ToString();
+            //        var date = newsBriefBlock.LastElementChild.FirstElementChild.FirstElementChild.Cq()["span"].FirstElement().FirstChild.ToString().Trim();
+            //        DateTime.TryParse(date, new MyDateTimeFormatProvider(), DateTimeStyles.AllowInnerWhite, out publishedDate);
+            //        storyRepo.Save(new Story
+            //        {
+            //            ImageUrl = imageUrl,
+            //            Url = storyUrl,
+            //            Title = title,
+            //            SectionId = section.Id,
+            //            NewspaperId = section.NewspaperId
+            //        });
+            //    }
+            //}
+
+
+
 
 
             //const string url = "http://youm7.com/NewsSection.asp?SecID=298";
@@ -89,20 +167,7 @@ namespace MisrNews.ConsoleApp
             //        });
             //}
 
-            //var url1 = "http://www.ahram.org.eg/Category/795/38/%D8%AD%D9%88%D8%A7%D8%AF%D8%AB.aspx";
-            //var dom1 = CQ.CreateFromUrl(url1, new ServerConfig {Timeout = new TimeSpan(Timeout.Infinite)});
-            //var cq1 = dom1[".block_outer_wight"];
-            //foreach (var blockOuterWight in cq1)
-            //{
-            //    string imageUrl;
-            //    string storyUrl;
-            //    DateTime publishedDate = DateTime.Now;
-
-            //    imageUrl = blockOuterWight.FirstElementChild.Cq()["a"].Attr("href");
-
-            //    Console.WriteLine(imageUrl);
-
-            //}
+           
 
             Console.ReadLine();
         }
